@@ -1,0 +1,40 @@
+<form #myForm="ngForm">
+  <table>
+    <tr>
+      <th>
+        <label for="txtName">Titolo</label>
+      </th>
+      <td>
+        <input type="text" id="txtName" required [(ngModel)]="book.title" name="titolo">
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="txtQta">Quantità</label>
+      </th>
+      <td>
+        <input type="text" id="txtQta" required [(ngModel)]="book.authors" name="qta">
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="txtPrice">Prezzo</label>
+      </th>
+      <td>
+        <input type="number" id="txtPrice" required [(ngModel)]="book.price" name="price">
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="selCat">Categoria</label>
+      </th>
+      <td>
+        <select name="category" id="selCat" [(ngModel)]="selcatid">
+          <option *ngFor="let ca of categories" value="{{ca.id}}">{{ca.name}}</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+
+  <button type="button" [disabled]="!myForm.valid" (click)="create()">Invia</button>
+</form>

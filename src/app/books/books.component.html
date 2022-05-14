@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let b of books">
+    <app-book-row [book] = 'b' [class.selected]= 'selectedBook == b' (click)="onSelect(b)"> </app-book-row>
+  </li>
+</ul>
+<app-book-details *ngIf="selectedBook" [book] = 'selectedBook'></app-book-details>
+
